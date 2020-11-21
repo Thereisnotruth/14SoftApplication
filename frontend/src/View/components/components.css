@@ -1,0 +1,40 @@
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #2ecc71;
+  text-align: center;
+  font: 46px;
+}
+a:link {text-decoration: none;color: black;}
+a:visited {text-decoration: none;color: black;}
+a:active {text-decoration: none;color: black;}
+a:hover {text-decoration: none;color: black;}
+
+.recipe {
+  background: yellow;
+  text-align: center;
+  border-radius: 30px;
+  box-shadow: gray;
+}
+
+.input {
+  background: white;
+  width: calc(100vw - 90px);
+  
+}
+
+.search {
+  margin: 10px;
+  background: yellow;
+  border: solid;
+  border-radius: 10%;
+}
+
+.recipe_wrapper {
+  width: 100%;
+}
+
+.favorite {
+  color: red;
+}
