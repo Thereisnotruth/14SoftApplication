@@ -21,8 +21,8 @@ a:hover {text-decoration: none;color: black;}
 .input {
   background: white;
   width: calc(100vw - 90px);
-  
 }
+
 
 .search {
   margin: 10px;
@@ -37,4 +37,44 @@ a:hover {text-decoration: none;color: black;}
 
 .favorite {
   color: red;
+}
+
+.Log{
+  margin-left: auto; 
+  margin-right: auto;
+  font-size: 100%;
+  width: 200px;
+  height: 50px;
+  padding: 13px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.Log_B{
+  margin-left: auto; 
+  margin-right: auto;
+  width: 100px;
+  height: 50px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+.Sign_up{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.Box{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto; 
+  margin-right: auto;
 }

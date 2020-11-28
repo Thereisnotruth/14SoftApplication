@@ -1,25 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Button, List, ListItem } from '@material-ui/core';
+import { Grid, List, ListItem, Button } from '@material-ui/core';
+import { UserModel } from '../../ViewModel';
 import './pages.css';
 
-const User = () => {
+const User = ({history}) => {
+  const userModel = new UserModel();
+
+  const logout = () => {
+    userModel.logout()
+    history.push('/main');
+  }
+
   return (
     <List>
-      <ListItem className='user'>
-        <Grid className='login_button'>
-          <Link to={'/login'}>
-              로그인
-            
-          </Link>
-          </Grid>
-      </ListItem>
-      <ListItem className='user'>
-        <Link to={'/favor'} className='see_favor_button'>
-            <Grid>
-              좋아요 누른 레시피
+      {
+        userModel.getIsLogin() === 0?
+          <ListItem className='user'>
+            <Grid className='login_button'>
+              <Link to={'/login'}>
+                  로그인
+              </Link>
             </Grid>
-        </Link>
+          </ListItem>
+        : 
+        <ListItem className='user'>
+          <Grid container>
+            <Button className='logout_button' onClick={logout}>
+              로그아웃
+            </Button>
+          </Grid>
+        </ListItem>
+      }
+      <ListItem className='user'>
+        <Grid container>
+          <Link to={'/favor'} className='see_favor_button'>
+              좋아요 누른 레시피
+          </Link>
+        </Grid>
       </ListItem>
     </List>
   )

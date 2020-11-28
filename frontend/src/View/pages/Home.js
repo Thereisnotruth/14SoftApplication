@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Grid } from '@material-ui/core'
-import { Main, Search, Login, User } from '../pages';
+import { Main, Search, Login, User, SignUp, Favor } from '../pages';
 import { Footer } from '../components';
 import './pages.css';
 
@@ -13,6 +13,8 @@ const Home = () => {
         <Route path='/search' component={Search} />
         <Route path='/login' component={Login} />
         <Route path='/user' component={User} />
+        <Route path='/signup' component={SignUp} />
+        <Route path='/favor' component={Favor}/>
       </div>
       <Footer />
     </>

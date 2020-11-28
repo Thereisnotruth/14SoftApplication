@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, ListItem, List } from '@material-ui/core';
-import { MainModel } from '../../ViewModel';
+import { Grid, Input, Button, List, ListItem } from '@material-ui/core';
+import { FavorModel } from '../../ViewModel'
 import { Recipe } from '../components';
-
-const Main = (props) => {
-  const mainModel = new MainModel();
-  const [data, setData] = useState([]);
+const Favor = () => {
+  const [favor, setFavor] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
- 
+
+  const favorModel = new FavorModel();
   useEffect(() => {
     const fetchData = async () => {
       setIsError(false);
       setIsLoading(true);
 
       try {
-        const test = await mainModel.whatRecipeShouldBeSeen();
+        const test = await favorModel.getFavorRecipe();
         console.log(test.data)
-        setData(test.data);
+        setFavor(test.data);
       } catch (error) {
         setIsError(true);
       }
@@ -25,10 +24,8 @@ const Main = (props) => {
     }
     fetchData();
   }, []);
-    
-  const recipeList = (data) => {
+  const showResult = (data) => {
     let result = [];
-    console.log(data);
 
     data.map(element => {
       result.push(
@@ -38,24 +35,28 @@ const Main = (props) => {
             recipeId = { element.id }
             ingredients = { element.ingredients }
             views = { element.views }
+            favor = { 1 }
           />
         </ListItem>
       );
     });
     return result;
   }
+
   return (
-    <List>
+    <Grid>
+      <List>
       {isLoading?(
         <div className='loading'>
           Loading...
         </div>
       ): (
-        recipeList(data)
+        showResult(favor)
       )
       }
-    </List>
+      </List>
+    </Grid>
   )
 }
 
-export default Main;
+export default Favor;
