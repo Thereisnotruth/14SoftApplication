@@ -19,7 +19,10 @@ const Recipe = (props) => {
       setFavor(1) 
     }
     else { 
-      
+      axios.post('/v1/unlike', {
+        userId: id,
+        recipeId: recipeId
+      })
       setFavor(0) 
     }
   }

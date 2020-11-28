@@ -26,21 +26,22 @@ const Favor = () => {
   }, []);
   const showResult = (data) => {
     let result = [];
-
-    data.map(element => {
-      result.push(
-        <ListItem>
-          <Recipe 
-            recipeName = { element.recipeName }
-            recipeId = { element.id }
-            ingredients = { element.ingredients }
-            views = { element.views }
-            favor = { 1 }
-          />
-        </ListItem>
-      );
-    });
-    return result;
+    if (data !== null) {
+      data.map(element => {
+        result.push(
+          <ListItem>
+            <Recipe 
+              recipeName = { element.recipeName }
+              recipeId = { element.id }
+              ingredients = { element.ingredients }
+              views = { element.views }
+              favor = { 1 }
+            />
+          </ListItem>
+        );
+      });
+      return result;
+    }
   }
 
   return (
